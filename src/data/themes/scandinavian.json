@@ -20,15 +20,40 @@
     "glass": "#d4e6ee",
     "ceramic": "#ffffff",
     "dark": "#4c565e",
-    "selection": "#4d94ff"
+    "selection": "#4d94ff",
+    "foliage": "#7fa27a",
+    "pot": "#e4ded4"
   },
   "materials": {
-    "matte": { "kind": "standard", "roughness": 0.92, "metalness": 0 },
-    "wall": { "extends": "matte", "color": "$wall", "roughness": 0.97 },
-    "wallAccent": { "extends": "wall", "color": "$wallAccent" },
-    "floorBirch": { "extends": "matte", "color": "$floor", "roughness": 0.6, "side": "double" },
-    "floorPale": { "extends": "floorBirch", "color": "$floorPale" },
-    "floorGrey": { "extends": "floorBirch", "color": "$floorGrey", "roughness": 0.85 },
+    "matte": {
+      "kind": "standard",
+      "roughness": 0.92,
+      "metalness": 0
+    },
+    "wall": {
+      "extends": "matte",
+      "color": "$wall",
+      "roughness": 0.97
+    },
+    "wallAccent": {
+      "extends": "wall",
+      "color": "$wallAccent"
+    },
+    "floorBirch": {
+      "extends": "matte",
+      "color": "$floor",
+      "roughness": 0.6,
+      "side": "double"
+    },
+    "floorPale": {
+      "extends": "floorBirch",
+      "color": "$floorPale"
+    },
+    "floorGrey": {
+      "extends": "floorBirch",
+      "color": "$floorGrey",
+      "roughness": 0.85
+    },
     "floorTile": {
       "kind": "physical",
       "color": "$floorTile",
@@ -38,14 +63,45 @@
       "clearcoatRoughness": 0.25,
       "side": "double"
     },
-    "wood": { "extends": "matte", "color": "$wood", "roughness": 0.5 },
-    "woodDark": { "extends": "wood", "color": "$woodDark" },
-    "woodLight": { "extends": "wood", "color": "$woodLight" },
-    "upholstery": { "extends": "matte", "color": "$fabric", "roughness": 0.96 },
-    "upholsterySoft": { "extends": "upholstery", "color": "$fabricSoft" },
-    "linen": { "extends": "matte", "color": "$linen", "roughness": 0.99 },
-    "brushedMetal": { "kind": "standard", "color": "$metal", "roughness": 0.4, "metalness": 0.75 },
-    "steel": { "kind": "standard", "color": "$steel", "roughness": 0.3, "metalness": 0.8 },
+    "wood": {
+      "extends": "matte",
+      "color": "$wood",
+      "roughness": 0.5
+    },
+    "woodDark": {
+      "extends": "wood",
+      "color": "$woodDark"
+    },
+    "woodLight": {
+      "extends": "wood",
+      "color": "$woodLight"
+    },
+    "upholstery": {
+      "extends": "matte",
+      "color": "$fabric",
+      "roughness": 0.96
+    },
+    "upholsterySoft": {
+      "extends": "upholstery",
+      "color": "$fabricSoft"
+    },
+    "linen": {
+      "extends": "matte",
+      "color": "$linen",
+      "roughness": 0.99
+    },
+    "brushedMetal": {
+      "kind": "standard",
+      "color": "$metal",
+      "roughness": 0.4,
+      "metalness": 0.75
+    },
+    "steel": {
+      "kind": "standard",
+      "color": "$steel",
+      "roughness": 0.3,
+      "metalness": 0.8
+    },
     "glass": {
       "kind": "standard",
       "color": "$glass",
@@ -54,8 +110,28 @@
       "transparent": true,
       "opacity": 0.25
     },
-    "ceramic": { "kind": "standard", "color": "$ceramic", "roughness": 0.15, "metalness": 0.03 },
-    "dark": { "extends": "matte", "color": "$dark", "roughness": 0.7 }
+    "ceramic": {
+      "kind": "standard",
+      "color": "$ceramic",
+      "roughness": 0.15,
+      "metalness": 0.03
+    },
+    "dark": {
+      "extends": "matte",
+      "color": "$dark",
+      "roughness": 0.7
+    },
+    "foliage": {
+      "kind": "standard",
+      "color": "$foliage",
+      "roughness": 0.95,
+      "flatShading": true
+    },
+    "pot": {
+      "kind": "standard",
+      "color": "$pot",
+      "roughness": 0.8
+    }
   },
   "roles": {
     "wall.primary": "wall",
@@ -83,7 +159,10 @@
     "furniture.metal": "steel",
     "furniture.sanitary": "ceramic",
     "bedding.mattress": "linen",
-    "bedding.pillow": "upholsterySoft"
+    "bedding.pillow": "upholsterySoft",
+    "furniture.plant": "foliage",
+    "plant.foliage": "foliage",
+    "plant.pot": "pot"
   },
   "nodeTypes": {
     "bed_double": "woodLight",
@@ -97,28 +176,73 @@
     "fridge": "steel",
     "tv_unit": "dark",
     "toilet": "ceramic",
-    "washbasin": "ceramic"
+    "washbasin": "ceramic",
+    "plant": "furniture.plant"
   },
   "rooms": {
-    "bathroom": { "materials": { "wall": "floorTile" } },
-    "bedroom": { "materials": { "wall": "wallAccent" } },
-    "kitchen": { "materials": { "wall": "wall" } }
+    "bathroom": {
+      "materials": {
+        "wall": "floorTile"
+      }
+    },
+    "bedroom": {
+      "materials": {
+        "wall": "wallAccent"
+      }
+    },
+    "kitchen": {
+      "materials": {
+        "wall": "wall"
+      }
+    }
   },
   "view3D": {
     "background": "#f2f5f7",
     "shadows": true,
-    "ambient": { "color": "#ffffff", "intensity": 0.95 },
-    "hemisphere": { "color": "#ffffff", "groundColor": "#cfd6db", "intensity": 0.7 },
+    "ambient": {
+      "color": "#ffffff",
+      "intensity": 0.95
+    },
+    "hemisphere": {
+      "color": "#ffffff",
+      "groundColor": "#cfd6db",
+      "intensity": 0.7
+    },
     "directional": [
-      { "color": "#fdfdff", "intensity": 1.5, "position": [6, 15, 8] },
-      { "color": "#dbe6f0", "intensity": 0.45, "position": [-9, 9, -7] }
+      {
+        "color": "#fdfdff",
+        "intensity": 1.5,
+        "position": [
+          6,
+          15,
+          8
+        ]
+      },
+      {
+        "color": "#dbe6f0",
+        "intensity": 0.45,
+        "position": [
+          -9,
+          9,
+          -7
+        ]
+      }
     ],
-    "grid": { "cellColor": "#d7dde1", "sectionColor": "#9aa5ad" }
+    "grid": {
+      "cellColor": "#d7dde1",
+      "sectionColor": "#9aa5ad"
+    }
   },
   "view2D": {
     "background": "#ffffff",
-    "ambient": { "color": "#ffffff", "intensity": 1.2 },
-    "grid": { "cellColor": "#e2e7ea", "sectionColor": "#aab3ba" },
+    "ambient": {
+      "color": "#ffffff",
+      "intensity": 1.2
+    },
+    "grid": {
+      "cellColor": "#e2e7ea",
+      "sectionColor": "#aab3ba"
+    },
     "wallOpacity": 0.95
   },
   "fallback": "matte"

@@ -1759,6 +1759,407 @@
       "width_m": 0.9,
       "height_m": 2.1,
       "sill_height": 0.0
+    },
+    {
+      "id": "f01",
+      "type": "plant",
+      "role": "furniture",
+      "label": "Potted Plant",
+      "position": {
+        "x": 3.383,
+        "z": -2.012
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.5,
+        "d": 0.5,
+        "h": 1.1
+      },
+      "color": "#4caf50",
+      "floor_y": 0.0,
+      "themeRole": "furniture.plant"
+    },
+    {
+      "id": "f02",
+      "type": "kitchen_counter",
+      "role": "furniture",
+      "label": "Kitchen Counter",
+      "position": {
+        "x": 0.633,
+        "z": -4.0
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 2.4,
+        "d": 0.6,
+        "h": 0.9
+      },
+      "color": "#455a64",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f03",
+      "type": "fridge",
+      "role": "furniture",
+      "label": "Refrigerator",
+      "position": {
+        "x": 1.551,
+        "z": -2.004
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.7,
+        "d": 0.7,
+        "h": 1.8
+      },
+      "color": "#b0bec5",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f04",
+      "type": "plant",
+      "role": "furniture",
+      "label": "Potted Plant",
+      "position": {
+        "x": -1.599,
+        "z": -3.032
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.5,
+        "d": 0.5,
+        "h": 1.1
+      },
+      "color": "#4caf50",
+      "floor_y": 0.0,
+      "themeRole": "furniture.plant"
+    },
+    {
+      "id": "f05",
+      "type": "dining_table",
+      "role": "furniture",
+      "label": "Dining Table",
+      "position": {
+        "x": 0.36,
+        "z": -0.132
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 1.5,
+        "d": 0.9,
+        "h": 0.75
+      },
+      "color": "#8d6e63",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f06",
+      "type": "chair",
+      "role": "furniture",
+      "label": "Chair",
+      "position": {
+        "x": 0.36,
+        "z": -1.002
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.45,
+        "d": 0.45,
+        "h": 0.9
+      },
+      "color": "#9e9e9e",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f07",
+      "type": "chair",
+      "role": "furniture",
+      "label": "Chair",
+      "position": {
+        "x": 0.36,
+        "z": 0.738
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.45,
+        "d": 0.45,
+        "h": 0.9
+      },
+      "color": "#9e9e9e",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f08",
+      "type": "sofa",
+      "role": "furniture",
+      "label": "Sofa",
+      "position": {
+        "x": 0.738,
+        "z": 3.31
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 2.0,
+        "d": 0.9,
+        "h": 0.8
+      },
+      "color": "#546e7a",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f09",
+      "type": "coffee_table",
+      "role": "furniture",
+      "label": "Coffee Table",
+      "position": {
+        "x": 0.738,
+        "z": 2.165
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 1.1,
+        "d": 0.6,
+        "h": 0.4
+      },
+      "color": "#795548",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f10",
+      "type": "tv_unit",
+      "role": "furniture",
+      "label": "TV Unit",
+      "position": {
+        "x": 0.738,
+        "z": 0.638
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 1.6,
+        "d": 0.4,
+        "h": 0.5
+      },
+      "color": "#37474f",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f11",
+      "type": "plant",
+      "role": "furniture",
+      "label": "Potted Plant",
+      "position": {
+        "x": 2.935,
+        "z": 3.819
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.5,
+        "d": 0.5,
+        "h": 1.1
+      },
+      "color": "#4caf50",
+      "floor_y": 0.0,
+      "themeRole": "furniture.plant"
+    },
+    {
+      "id": "f12",
+      "type": "toilet",
+      "role": "furniture",
+      "label": "Toilet",
+      "position": {
+        "x": -4.576,
+        "z": -0.809
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.4,
+        "d": 0.7,
+        "h": 0.8
+      },
+      "color": "#eceff1",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f13",
+      "type": "washbasin",
+      "role": "furniture",
+      "label": "Wash Basin",
+      "position": {
+        "x": -3.297,
+        "z": -0.879
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.6,
+        "d": 0.45,
+        "h": 0.9
+      },
+      "color": "#eceff1",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f14",
+      "type": "toilet",
+      "role": "furniture",
+      "label": "Toilet",
+      "position": {
+        "x": -2.278,
+        "z": -0.809
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.4,
+        "d": 0.7,
+        "h": 0.8
+      },
+      "color": "#eceff1",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f15",
+      "type": "washbasin",
+      "role": "furniture",
+      "label": "Wash Basin",
+      "position": {
+        "x": -1.097,
+        "z": -0.879
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.6,
+        "d": 0.45,
+        "h": 0.9
+      },
+      "color": "#eceff1",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f16",
+      "type": "bed_double",
+      "role": "furniture",
+      "label": "Double Bed",
+      "position": {
+        "x": -3.629,
+        "z": 1.503
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 1.6,
+        "d": 2.0,
+        "h": 0.5
+      },
+      "color": "#8d6e63",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f17",
+      "type": "wardrobe",
+      "role": "furniture",
+      "label": "Wardrobe",
+      "position": {
+        "x": -3.629,
+        "z": 3.401
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 1.8,
+        "d": 0.6,
+        "h": 2.1
+      },
+      "color": "#6d4c41",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f18",
+      "type": "bed_single",
+      "role": "furniture",
+      "label": "Single Bed",
+      "position": {
+        "x": -0.818,
+        "z": 2.736
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.9,
+        "d": 1.9,
+        "h": 0.5
+      },
+      "color": "#a1887f",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f19",
+      "type": "wardrobe",
+      "role": "furniture",
+      "label": "Wardrobe",
+      "position": {
+        "x": -0.686,
+        "z": 4.272
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 1.8,
+        "d": 0.6,
+        "h": 2.1
+      },
+      "color": "#6d4c41",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f20",
+      "type": "plant",
+      "role": "furniture",
+      "label": "Potted Plant",
+      "position": {
+        "x": 0.237,
+        "z": 1.859
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.5,
+        "d": 0.5,
+        "h": 1.1
+      },
+      "color": "#4caf50",
+      "floor_y": 0.0,
+      "themeRole": "furniture.plant"
+    },
+    {
+      "id": "f21",
+      "type": "chair",
+      "role": "furniture",
+      "label": "Chair",
+      "position": {
+        "x": 1.617,
+        "z": 3.734
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.45,
+        "d": 0.45,
+        "h": 0.9
+      },
+      "color": "#9e9e9e",
+      "floor_y": 0.0
+    },
+    {
+      "id": "f22",
+      "type": "plant",
+      "role": "furniture",
+      "label": "Potted Plant",
+      "position": {
+        "x": 2.962,
+        "z": 3.734
+      },
+      "rotation_deg": 0,
+      "size": {
+        "w": 0.5,
+        "d": 0.5,
+        "h": 1.1
+      },
+      "color": "#4caf50",
+      "floor_y": 0.0,
+      "themeRole": "furniture.plant"
     }
   ],
   "summary": {

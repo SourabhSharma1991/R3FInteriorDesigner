@@ -167,10 +167,16 @@ export function resolveMaterial(input: ResolveInput): Resolution {
   const byType = pick(theme, theme.nodeTypes, [node.type], part, inherit)
   if (byType) return finish(byType.spec, 'nodeType', byType.matched)
 
+  /** A role named by the component is already part-specific, so it matches bare. */
+  if (role) {
+    const hit = pick(theme, theme.roles, [role], part, true)
+    if (hit) return finish(hit.spec, 'nodeType', hit.matched)
+  }
+
   const byRole = pick(
     theme,
     theme.roles,
-    [role, inferThemeRole(node), `${category}.default`, category],
+    [inferThemeRole(node), `${category}.default`, category],
     part,
     inherit,
   )

@@ -1,0 +1,107 @@
+{
+  "id": "sample-coastal",
+  "name": "Sample — Coastal",
+  "description": "Minimal reference theme: every section filled in, nothing else needed. Import it with the toolbar's \"Import theme\" button.",
+
+  "palette": {
+    "wall": "#f4f7f8",
+    "wallAccent": "#2f6f7e",
+    "floor": "#dcc39a",
+    "floorTile": "#e6edef",
+    "wood": "#b98a5c",
+    "woodDark": "#6d4a31",
+    "fabric": "#3f7d8c",
+    "linen": "#fdfcf8",
+    "metal": "#9aa7ad",
+    "glass": "#bcd9e3",
+    "ceramic": "#ffffff",
+    "foliage": "#4f8a5b",
+    "pot": "#cf8f63",
+    "selection": "#ff8f00"
+  },
+
+  "materials": {
+    "wall": { "kind": "standard", "color": "$wall", "roughness": 0.9 },
+    "wallAccent": { "extends": "wall", "color": "$wallAccent" },
+    "floorWood": { "kind": "standard", "color": "$floor", "roughness": 0.75, "side": "double" },
+    "floorTile": { "extends": "floorWood", "color": "$floorTile", "roughness": 0.35 },
+    "wood": { "kind": "standard", "color": "$wood", "roughness": 0.7 },
+    "woodDark": { "extends": "wood", "color": "$woodDark" },
+    "upholstery": { "kind": "standard", "color": "$fabric", "roughness": 1 },
+    "linen": { "kind": "standard", "color": "$linen", "roughness": 1 },
+    "metal": { "kind": "standard", "color": "$metal", "roughness": 0.35, "metalness": 0.8 },
+    "glass": {
+      "kind": "physical",
+      "color": "$glass",
+      "roughness": 0.08,
+      "transparent": true,
+      "opacity": 0.35,
+      "clearcoat": 0.6
+    },
+    "ceramic": { "kind": "standard", "color": "$ceramic", "roughness": 0.25 },
+    "foliage": { "kind": "standard", "color": "$foliage", "roughness": 0.95, "flatShading": true },
+    "pot": { "kind": "standard", "color": "$pot", "roughness": 0.8 }
+  },
+
+  "roles": {
+    "wall.primary": "wall",
+    "wall.accent": "wallAccent",
+
+    "floor.default": "floorWood",
+    "floor.living_room": "floorWood",
+    "floor.bedroom": "floorWood",
+    "floor.kitchen": "floorTile",
+    "floor.bathroom": "floorTile",
+
+    "door.default": "wood",
+    "door.frame": "woodDark",
+    "door.panel": "wood",
+    "door.handle": "metal",
+    "window.frame": "woodDark",
+    "window.glass": "glass",
+
+    "furniture.default": "wood",
+    "furniture.soft": "upholstery",
+    "furniture.metal": "metal",
+    "furniture.sanitary": "ceramic",
+    "furniture.plant": "foliage",
+    "plant.foliage": "foliage",
+    "plant.pot": "pot",
+    "bedding.mattress": "linen",
+    "bedding.pillow": "linen"
+  },
+
+  "nodeTypes": {
+    "sofa": "furniture.soft",
+    "chair": "furniture.soft",
+    "fridge": "furniture.metal",
+    "kitchen_counter": "furniture.metal",
+    "toilet": "furniture.sanitary",
+    "washbasin": "furniture.sanitary",
+    "plant": "furniture.plant"
+  },
+
+  "rooms": {
+    "bathroom": { "materials": { "floor": "floorTile", "furniture": "ceramic" } },
+    "kitchen": { "materials": { "floor": "floorTile" } }
+  },
+
+  "view2D": {
+    "background": "#f2f6f7",
+    "ambient": { "color": "#ffffff", "intensity": 1.1 },
+    "grid": { "cellColor": "#d4e0e3", "sectionColor": "#8fa8b0" },
+    "wallOpacity": 0.9
+  },
+
+  "view3D": {
+    "background": "#eaf1f3",
+    "shadows": true,
+    "ambient": { "color": "#f4fbff", "intensity": 0.8 },
+    "hemisphere": { "color": "#ffffff", "groundColor": "#bcc9cd", "intensity": 0.6 },
+    "directional": [
+      { "color": "#fff4e3", "intensity": 1.6, "position": [8, 14, 6] },
+      { "color": "#cfe3ee", "intensity": 0.4, "position": [-10, 8, -6] }
+    ],
+    "grid": { "cellColor": "#cfdde1", "sectionColor": "#8ba3aa" }
+  }
+}
