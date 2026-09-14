@@ -3,6 +3,7 @@ import { useMemo } from 'react'
 import * as THREE from 'three'
 import { polygonArea } from '../lib/sceneGraph'
 import { roomColor } from '../lib/palette'
+import { useSelectionColor, useThemedMaterial } from '../theme/useTheme'
 import type { RoomNode } from '../types/sceneGraph'
 
 interface Props {
@@ -22,22 +23,28 @@ export function RoomMesh({ room, selected, showLabel, onSelect }: Props) {
     return { geometry: geom, area: polygonArea(room.polygon) }
   }, [room.polygon, room.centroid])
 
+  const selectionColor = useSelectionColor('#ffd54f')
+  const material = useThemedMaterial(room, {
+    role: 'floor',
+    fallback: {
+      color: roomColor(room.type, room.color),
+      roughness: 0.9,
+      side: 'double',
+    },
+    runtime: selected ? { color: selectionColor } : undefined,
+  })
+
   return (
     <group position={[room.centroid.x, room.floor_y, room.centroid.z]}>
       <mesh
         geometry={geometry}
+        material={material}
         receiveShadow
         onClick={(e) => {
           e.stopPropagation()
           onSelect(room.id)
         }}
-      >
-        <meshStandardMaterial
-          color={selected ? '#ffd54f' : roomColor(room.type, room.color)}
-          roughness={0.9}
-          side={THREE.DoubleSide}
-        />
-      </mesh>
+      />
       {showLabel && (
         <Html position={[0, 0.05, 0]} center distanceFactor={12} zIndexRange={[10, 0]}>
           <div className="room-label">

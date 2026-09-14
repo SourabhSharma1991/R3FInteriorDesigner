@@ -138,6 +138,7 @@ function parseNode(raw: unknown, index: number): SceneNode {
   const id = typeof raw.id === 'string' && raw.id ? raw.id : uid()
   const type = typeof raw.type === 'string' ? raw.type : String(role ?? 'unknown')
   const label = typeof raw.label === 'string' ? raw.label : ''
+  const themeRole = typeof raw.themeRole === 'string' && raw.themeRole ? raw.themeRole : undefined
 
   if (role === 'room') {
     if (!Array.isArray(raw.polygon) || raw.polygon.length < 3) {
@@ -149,6 +150,7 @@ function parseNode(raw: unknown, index: number): SceneNode {
     const room: RoomNode = {
       id,
       role: 'room',
+      themeRole,
       type,
       label: label || type,
       polygon,
@@ -171,6 +173,7 @@ function parseNode(raw: unknown, index: number): SceneNode {
     const wall: WallNode = {
       id,
       role: 'wall',
+      themeRole,
       type: 'wall',
       label: typeof raw.label === 'string' ? raw.label : undefined,
       start,
@@ -186,6 +189,7 @@ function parseNode(raw: unknown, index: number): SceneNode {
     const opening: OpeningNode = {
       id,
       role: 'opening',
+      themeRole,
       type: type === 'window' ? 'window' : 'door',
       label: label || type,
       position: readVec2(raw.position, `${where}.position`),
@@ -201,6 +205,7 @@ function parseNode(raw: unknown, index: number): SceneNode {
     const furniture: FurnitureNode = {
       id,
       role: 'furniture',
+      themeRole,
       type,
       label: label || type,
       position: readVec2(raw.position, `${where}.position`),

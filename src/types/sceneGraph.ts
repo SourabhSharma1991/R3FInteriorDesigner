@@ -10,7 +10,16 @@ export interface BBox {
   d: number
 }
 
-export interface RoomNode {
+/**
+ * Fields every node may carry. `themeRole` is the only hook the theme layer
+ * has into the graph: a semantic name such as `wall.primary` that the theme
+ * resolves to a material. Nodes without one fall back to their `type`.
+ */
+export interface ThemedNode {
+  themeRole?: string
+}
+
+export interface RoomNode extends ThemedNode {
   id: string
   role: 'room'
   type: string
@@ -23,7 +32,7 @@ export interface RoomNode {
   color?: string
 }
 
-export interface WallNode {
+export interface WallNode extends ThemedNode {
   id: string
   role: 'wall'
   type: 'wall'
@@ -35,7 +44,7 @@ export interface WallNode {
   length_m: number
 }
 
-export interface OpeningNode {
+export interface OpeningNode extends ThemedNode {
   id: string
   role: 'opening'
   type: 'door' | 'window'
@@ -50,7 +59,7 @@ export interface OpeningNode {
  * Furniture is an extension of the floor-plan schema: the importer never
  * requires it, the exporter always round-trips it.
  */
-export interface FurnitureNode {
+export interface FurnitureNode extends ThemedNode {
   id: string
   role: 'furniture'
   type: string
