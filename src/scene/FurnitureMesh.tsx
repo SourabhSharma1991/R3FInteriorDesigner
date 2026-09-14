@@ -12,6 +12,7 @@ export function FurnitureMesh({ item, selected, onSelect }: Props) {
   const { w, d, h } = item.size
   const isBed = item.type.startsWith('bed')
   const isTable = item.type.endsWith('table')
+  const isPlant = item.type === 'plant'
 
   const selectionColor = useSelectionColor('#ff8f00')
   const highlight = selected ? { color: selectionColor } : undefined
@@ -50,6 +51,19 @@ export function FurnitureMesh({ item, selected, onSelect }: Props) {
     fallback: { ...body, roughness: 0.8 },
     runtime: highlight,
   })
+  const potMaterial = useThemedMaterial(item, {
+    part: 'pot',
+    role: 'plant.pot',
+    inherit: false,
+    fallback: { color: '#bf7f5f', roughness: 0.85 },
+    runtime: highlight,
+  })
+  const foliageMaterial = useThemedMaterial(item, {
+    part: 'foliage',
+    role: 'plant.foliage',
+    inherit: false,
+    fallback: { color: item.color, roughness: 0.9, flatShading: true },
+  })
 
   return (
     <group
@@ -60,7 +74,19 @@ export function FurnitureMesh({ item, selected, onSelect }: Props) {
         onSelect(item.id)
       }}
     >
-      {isTable ? (
+      {isPlant ? (
+        <>
+          <mesh position={[0, h * 0.16, 0]} material={potMaterial} castShadow receiveShadow>
+            <cylinderGeometry args={[w * 0.36, w * 0.26, h * 0.32, 16]} />
+          </mesh>
+          <mesh position={[0, h * 0.62, 0]} material={foliageMaterial} castShadow>
+            <sphereGeometry args={[Math.min(w, d) * 0.52, 12, 10]} />
+          </mesh>
+          <mesh position={[w * 0.18, h * 0.84, -d * 0.12]} material={foliageMaterial} castShadow>
+            <sphereGeometry args={[Math.min(w, d) * 0.34, 10, 8]} />
+          </mesh>
+        </>
+      ) : isTable ? (
         <>
           <mesh position={[0, h - 0.04, 0]} material={topMaterial} castShadow>
             <boxGeometry args={[w, 0.08, d]} />

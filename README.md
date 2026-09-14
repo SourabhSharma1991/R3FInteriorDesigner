@@ -79,6 +79,10 @@ touch geometry — switching one re-resolves materials only, the graph is not re
 Pick a theme in the toolbar (`Default (no theme)` keeps the original appearance), or import your own JSON with
 *Import theme*. Built-in: `modern-warm`, `scandinavian`, `japandi` (`src/data/themes/`).
 
+`src/data/themes/sample-theme.json` is a complete reference theme meant for *Import theme*: every section filled
+in (palette, materials, roles, node types, room rules, 2D/3D presentation) covering walls, floors, doors and
+windows, furniture — including potted plants (`plant.pot` / `plant.foliage`) and bedding.
+
 ```jsonc
 {
   "id": "modern-warm",

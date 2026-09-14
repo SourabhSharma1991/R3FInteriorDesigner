@@ -36,6 +36,7 @@ export const FURNITURE_CATALOG: FurnitureTemplate[] = [
   { type: 'tv_unit', label: 'TV Unit', size: { w: 1.6, d: 0.4, h: 0.5 }, color: '#37474f' },
   { type: 'toilet', label: 'Toilet', size: { w: 0.4, d: 0.7, h: 0.8 }, color: '#eceff1' },
   { type: 'washbasin', label: 'Wash Basin', size: { w: 0.6, d: 0.45, h: 0.9 }, color: '#eceff1' },
+  { type: 'plant', label: 'Potted Plant', size: { w: 0.5, d: 0.5, h: 1.1 }, color: '#4caf50' },
 ]
 
 export function makeFurniture(
