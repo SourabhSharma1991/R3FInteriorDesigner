@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { buildWallLayout, wallMidpoint } from '../lib/wallGeometry'
+import { useSelectionColor, useThemedMaterial } from '../theme/useTheme'
 import type { OpeningNode, WallNode } from '../types/sceneGraph'
 
 interface Props {
@@ -14,12 +15,25 @@ export function WallMesh({ wall, hosted, selected, opacity, onSelect }: Props) {
   const layout = useMemo(() => buildWallLayout(wall, hosted), [wall, hosted])
   const mid = wallMidpoint(wall)
 
+  const selectionColor = useSelectionColor('#ffb300')
+  const material = useThemedMaterial(wall, {
+    role: 'wall.primary',
+    fallback: { color: '#f2efe9', roughness: 0.95 },
+    runtime: {
+      transparent: true,
+      opacity,
+      depthWrite: opacity > 0.95,
+      ...(selected ? { color: selectionColor } : {}),
+    },
+  })
+
   return (
     <group position={[mid.x, 0, mid.z]} rotation={[0, layout.rotationY, 0]}>
       {layout.pieces.map((piece, i) => (
         <mesh
           key={i}
           position={piece.center}
+          material={material}
           castShadow
           receiveShadow
           onClick={(e) => {
@@ -28,13 +42,6 @@ export function WallMesh({ wall, hosted, selected, opacity, onSelect }: Props) {
           }}
         >
           <boxGeometry args={piece.size} />
-          <meshStandardMaterial
-            color={selected ? '#ffb300' : '#f2efe9'}
-            roughness={0.95}
-            transparent
-            opacity={opacity}
-            depthWrite={opacity > 0.95}
-          />
         </mesh>
       ))}
     </group>

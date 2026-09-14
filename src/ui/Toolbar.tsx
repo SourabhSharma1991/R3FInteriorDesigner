@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { serializeSceneGraph } from '../lib/sceneGraph'
 import { useSceneStore } from '../store/sceneStore'
+import { ThemePicker } from './ThemePicker'
 
 export function Toolbar({ onToggleJson }: { onToggleJson: () => void }) {
   const fileInput = useRef<HTMLInputElement>(null)
@@ -69,6 +70,8 @@ export function Toolbar({ onToggleJson }: { onToggleJson: () => void }) {
         <input type="checkbox" checked={view.showGrid} onChange={(e) => setView({ showGrid: e.target.checked })} />
         Grid
       </label>
+      <ThemePicker />
+
       <label className="check">
         Wall opacity
         <input

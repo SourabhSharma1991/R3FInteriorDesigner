@@ -1,0 +1,138 @@
+{
+  "id": "japandi",
+  "name": "Japandi",
+  "description": "Muted clay walls, tatami-toned floors, charcoal wood and paper screens.",
+  "palette": {
+    "wall": "#e8e2d6",
+    "wallAccent": "#b8ac99",
+    "floor": "#c2b184",
+    "floorTatami": "#c9bb8c",
+    "floorStone": "#b9b3a8",
+    "floorTile": "#cfcabd",
+    "wood": "#8a6f52",
+    "woodDark": "#4a3c30",
+    "woodLight": "#c6ab86",
+    "fabric": "#7d7a70",
+    "fabricSoft": "#d9d2c4",
+    "linen": "#f4f1e8",
+    "paper": "#f7f4ea",
+    "metal": "#7a7268",
+    "steel": "#8d8b86",
+    "glass": "#cdd6cf",
+    "ceramic": "#f2efe6",
+    "dark": "#2f2b26",
+    "selection": "#e07a5f"
+  },
+  "materials": {
+    "matte": { "kind": "standard", "roughness": 0.95, "metalness": 0 },
+    "wall": { "extends": "matte", "color": "$wall", "roughness": 0.98 },
+    "wallAccent": { "extends": "wall", "color": "$wallAccent" },
+    "floorTatami": {
+      "extends": "matte",
+      "color": "$floorTatami",
+      "roughness": 0.85,
+      "side": "double"
+    },
+    "floorWood": { "extends": "floorTatami", "color": "$floor", "roughness": 0.7 },
+    "floorStone": { "extends": "floorTatami", "color": "$floorStone" },
+    "floorTile": {
+      "kind": "physical",
+      "color": "$floorTile",
+      "roughness": 0.35,
+      "metalness": 0.02,
+      "clearcoat": 0.35,
+      "clearcoatRoughness": 0.4,
+      "side": "double"
+    },
+    "wood": { "extends": "matte", "color": "$wood", "roughness": 0.6 },
+    "woodDark": { "extends": "wood", "color": "$woodDark" },
+    "woodLight": { "extends": "wood", "color": "$woodLight" },
+    "upholstery": { "extends": "matte", "color": "$fabric", "roughness": 0.97 },
+    "upholsterySoft": { "extends": "upholstery", "color": "$fabricSoft" },
+    "linen": { "extends": "matte", "color": "$linen", "roughness": 0.99 },
+    "paper": {
+      "kind": "standard",
+      "color": "$paper",
+      "roughness": 1,
+      "transparent": true,
+      "opacity": 0.85
+    },
+    "blackenedMetal": { "kind": "standard", "color": "$metal", "roughness": 0.5, "metalness": 0.7 },
+    "steel": { "kind": "standard", "color": "$steel", "roughness": 0.45, "metalness": 0.6 },
+    "glass": {
+      "kind": "standard",
+      "color": "$glass",
+      "roughness": 0.15,
+      "metalness": 0.05,
+      "transparent": true,
+      "opacity": 0.4
+    },
+    "ceramic": { "kind": "standard", "color": "$ceramic", "roughness": 0.3, "metalness": 0.02 },
+    "dark": { "extends": "matte", "color": "$dark", "roughness": 0.75 }
+  },
+  "roles": {
+    "wall.primary": "wall",
+    "wall.accent": "wallAccent",
+    "floor.default": "floorWood",
+    "floor.living_room": "floorTatami",
+    "floor.dining": "floorWood",
+    "floor.bedroom": "floorTatami",
+    "floor.kitchen": "floorStone",
+    "floor.bathroom": "floorTile",
+    "floor.lobby": "floorStone",
+    "floor.balcony": "floorStone",
+    "floor.sitout": "floorStone",
+    "door.default": "woodDark",
+    "door.panel": "paper",
+    "door.frame": "woodDark",
+    "door.handle": "blackenedMetal",
+    "window.default": "woodDark",
+    "window.frame": "woodDark",
+    "window.glass": "glass",
+    "furniture.default": "wood",
+    "furniture.wood": "wood",
+    "furniture.dark": "dark",
+    "furniture.soft": "upholstery",
+    "furniture.metal": "steel",
+    "furniture.sanitary": "ceramic",
+    "bedding.mattress": "linen",
+    "bedding.pillow": "upholsterySoft"
+  },
+  "nodeTypes": {
+    "bed_double": "woodDark",
+    "bed_single": "woodDark",
+    "wardrobe": "wood",
+    "sofa": "upholstery",
+    "coffee_table": "woodDark",
+    "dining_table": "wood",
+    "chair": "woodDark",
+    "kitchen_counter": "dark",
+    "fridge": "steel",
+    "tv_unit": "woodDark",
+    "toilet": "ceramic",
+    "washbasin": "ceramic"
+  },
+  "rooms": {
+    "bathroom": { "materials": { "wall": "floorTile" } },
+    "living_room": { "materials": { "wall": "wallAccent" } },
+    "balcony": { "materials": { "wall": "wallAccent" } }
+  },
+  "view3D": {
+    "background": "#e6e1d6",
+    "shadows": true,
+    "ambient": { "color": "#fdf7e9", "intensity": 0.7 },
+    "hemisphere": { "color": "#f6efe0", "groundColor": "#9c9280", "intensity": 0.55 },
+    "directional": [
+      { "color": "#ffeed4", "intensity": 1.35, "position": [7, 13, 5] },
+      { "color": "#b9c0c7", "intensity": 0.3, "position": [-8, 7, -8] }
+    ],
+    "grid": { "cellColor": "#cfc8b8", "sectionColor": "#9b9482" }
+  },
+  "view2D": {
+    "background": "#efeade",
+    "ambient": { "color": "#fffaf0", "intensity": 1.05 },
+    "grid": { "cellColor": "#d8d1c2", "sectionColor": "#a79d8a" },
+    "wallOpacity": 0.85
+  },
+  "fallback": "matte"
+}

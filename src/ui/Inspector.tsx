@@ -15,6 +15,7 @@ import type {
   WallNode,
 } from '../types/sceneGraph'
 import { isFurniture, isOpening, isRoom, isWall } from '../types/sceneGraph'
+import { AppearanceSection } from './AppearanceSection'
 import { ColorField, NumberField, SelectField, TextField } from './fields'
 
 const ROOM_TYPES = [
@@ -191,6 +192,7 @@ export function Inspector() {
       {isWall(node) && <WallInspector wall={node} />}
       {isOpening(node) && <OpeningInspector opening={node} />}
       {isFurniture(node) && <FurnitureInspector item={node} />}
+      <AppearanceSection node={node} />
       <div className="row">
         <button type="button" onClick={() => duplicateNode(node.id)}>
           Duplicate

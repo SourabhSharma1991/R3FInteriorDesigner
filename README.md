@@ -45,6 +45,8 @@ Nodes are discriminated by `role`.
 }
 ```
 
+Any node may also carry an optional `"themeRole": "wall.primary"` — see [Themes](#themes).
+
 `bbox`, `centroid`, `length_m` and `summary` are derived — they are recomputed on load and on every edit,
 so hand-written input can omit them. `furniture` is this app's extension of the plan schema; every other
 role round-trips unchanged, so an exported file can be fed straight back in.
@@ -67,17 +69,62 @@ role round-trips unchanged, so an exported file can be fed straight back in.
 - Add rooms, walls and doors from the outliner; add furniture from the catalog in a selected room's inspector.
 - Duplicate/Delete (or <kbd>Del</kbd>), undo/redo (<kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd>).
 - Toolbar: 3D vs top view, toggle walls/furniture/labels/grid, wall opacity (to see into rooms),
-  import a JSON file, export the edited scene graph, or paste JSON in the JSON panel.
+  import a JSON file, export the edited scene graph, paste JSON in the JSON panel, or switch the theme.
+
+## Themes
+
+The scene graph says **what exists**; a theme says **how it looks**. Themes are separate JSON files and never
+touch geometry — switching one re-resolves materials only, the graph is not regenerated or modified.
+
+Pick a theme in the toolbar (`Default (no theme)` keeps the original appearance), or import your own JSON with
+*Import theme*. Built-in: `modern-warm`, `scandinavian`, `japandi` (`src/data/themes/`).
+
+```jsonc
+{
+  "id": "modern-warm",
+  "name": "Modern Warm",
+  "palette": { "wall": "#efe7dc" },          // colour tokens
+  "materials": {
+    "wall": { "kind": "standard", "color": "$wall", "roughness": 0.85 },
+    "wallAccent": { "extends": "wall", "color": "#c96f4a" }
+  },
+  "roles": { "wall.primary": "wall", "wall.accent": "wallAccent" },
+  "nodeTypes": { "sofa": "furniture.soft" },  // per node.type default
+  "rooms": { "bathroom": { "floor": "tile" } },
+  "view2D": { "background": "#f7f2ea", "wallOpacity": 0.9 },
+  "view3D": { "background": "#f1e9df", "ambient": { "intensity": 0.75 }, "directional": [] }
+}
+```
+
+A node may carry a semantic role — `"themeRole": "wall.primary"` — editable in the inspector. Nodes without
+one get a role inferred from `node.type` (a `sofa` → `furniture.soft`, a room → `floor.<type>`).
+
+Appearance resolves in this order, first hit wins:
+
+1. **user override** (inspector colour, keyed `nodeId` or `nodeId:part`)
+2. **node `themeRole`**
+3. **room rule** (the room whose polygon contains the node)
+4. **node type default**
+5. **default material** — with no theme, the node's own colours, exactly as before
+
+Colours written as `"$wall"` resolve through `palette`. Resolved materials are cached by their property set in
+`MaterialFactory`, so no Three.js material is built per render.
 
 ## Layout
 
 ```
 src/
   types/sceneGraph.ts   schema + type guards
+  types/theme.ts        theme schema
   lib/sceneGraph.ts     parsing/validation, derived fields, transforms
   lib/wallGeometry.ts   opening→wall assignment and wall splitting
   lib/palette.ts        room colours + furniture catalog
   store/sceneStore.ts   zustand store (graph, selection, view options, undo/redo)
+  theme/ThemeLoader     parse/validate theme JSON (file or URL)
+  theme/ThemeManager    registered themes, active theme, overrides, material cache
+  theme/ThemeResolver   role inference + the resolution order above
+  theme/MaterialFactory cached Three.js materials
+  theme/ThemeProvider   React context for the active theme
   scene/                Canvas and the meshes for rooms, walls, openings, furniture
-  ui/                   toolbar, outliner, inspector, JSON panel
+  ui/                   toolbar, outliner, inspector, JSON panel, theme picker
 ```

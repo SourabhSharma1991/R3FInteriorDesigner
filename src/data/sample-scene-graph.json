@@ -417,6 +417,7 @@
       "id": "49bb62b7",
       "type": "wall",
       "role": "wall",
+      "themeRole": "wall.primary",
       "start": {
         "x": -8.155,
         "z": -5.483
@@ -433,6 +434,7 @@
       "id": "03324237",
       "type": "wall",
       "role": "wall",
+      "themeRole": "wall.accent",
       "start": {
         "x": -5.272,
         "z": -1.511

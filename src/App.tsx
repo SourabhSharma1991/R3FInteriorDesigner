@@ -2,6 +2,7 @@ import { Suspense, useEffect, useState } from 'react'
 import './App.css'
 import { Viewport } from './scene/Viewport'
 import { useSceneStore } from './store/sceneStore'
+import { ThemeProvider } from './theme/ThemeProvider'
 import { Inspector } from './ui/Inspector'
 import { JsonPanel } from './ui/JsonPanel'
 import { Outliner } from './ui/Outliner'
@@ -34,26 +35,28 @@ export default function App() {
   }, [deleteNode, redo, undo])
 
   return (
-    <div className="app">
-      <Toolbar onToggleJson={() => setShowJson((v) => !v)} />
-      <main>
-        <Outliner />
-        <div className="viewport">
-          <Suspense fallback={null}>
-            <Viewport />
-          </Suspense>
-          {showJson && <JsonPanel onClose={() => setShowJson(false)} />}
-        </div>
-        <Inspector />
-      </main>
-      {error && (
-        <div className="error" role="alert">
-          <span>{error}</span>
-          <button type="button" onClick={clearError}>
-            Dismiss
-          </button>
-        </div>
-      )}
-    </div>
+    <ThemeProvider persist>
+      <div className="app">
+        <Toolbar onToggleJson={() => setShowJson((v) => !v)} />
+        <main>
+          <Outliner />
+          <div className="viewport">
+            <Suspense fallback={null}>
+              <Viewport />
+            </Suspense>
+            {showJson && <JsonPanel onClose={() => setShowJson(false)} />}
+          </div>
+          <Inspector />
+        </main>
+        {error && (
+          <div className="error" role="alert">
+            <span>{error}</span>
+            <button type="button" onClick={clearError}>
+              Dismiss
+            </button>
+          </div>
+        )}
+      </div>
+    </ThemeProvider>
   )
 }
